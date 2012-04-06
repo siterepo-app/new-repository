@@ -1,0 +1,24 @@
+<h1><%= @site.title %></h1>
+
+<%= @site.text %>
+
+<h2>Comments</h2>
+
+<% @site.comments.each do |comment| %>
+  <p><%= comment.text %></p>
+  <p><%= time_ago_in_words comment.created_at %> ago</p>
+  <p><%= link_to "Delete comment", [@site, comment], :method => :delete, :confirm => "are you sure to delete this comment?" %></p>
+<% end %>
+
+<%= form_for [@site, @site.comments.build] do |f| %>
+  <p><%= f.text_area :text, :size => '40x10' %></p>
+  <p><%= f.submit "Post comment" %></p>
+<% end %>
+
+<p>
+  <%= link_to "Back", sites_path %>
+  |
+  <%= link_to "Edit", edit_site_path(@site) %>
+  |
+  <%= link_to "Delete", @site, :method => :delete, :confirm => "Are you sure to delete?" %>
+</p>

@@ -1,0 +1,15 @@
+<h1>Welcome to TOP-TV Sites</h1>
+
+<% @sites.each do |site| %>
+  <h2><%= link_to site.title, site %></h2>
+  <p>
+    <%= time_ago_in_words site.created_at %> ago
+  </p>
+  <p>
+    <%= truncate site.text %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "New post", new_site_path %>
+</p>
