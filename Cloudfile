@@ -1,0 +1,17 @@
+siteapplication:
+  ruby_version: 1.9.3 # 1.9.3, 1.9.2 or ree-1.8.7
+  environment: production # RAILS_ENV
+  monitoring_email: site.application100@gmail.com
+  domains:
+    - siteapplication.shellyapp.com
+  servers:
+    app1:
+      size: large
+      thin: 4
+      # whenever: on
+      # delayed_job: 1
+    postgresql:
+      size: large
+      databases:
+        - postgresql
+
